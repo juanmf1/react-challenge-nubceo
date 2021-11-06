@@ -6,7 +6,7 @@ Using a bands API, I created an app which shows every band and details from each
 
 I used Reqres Rest API, for a "fake" login. The valid data is:
 
-Email : eve.holt@reqres.in
+Email : eve.holt@reqres.in  
 Password : cityslicka
 
 # Libraries

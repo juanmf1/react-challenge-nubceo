@@ -11,8 +11,6 @@ Password : cityslicka
 
 # Libraries
 
-I used :
-
 ## React-router-dom
 
 For establishing routes and redirections

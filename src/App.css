@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css");
+:root {
+  --green: #1e8542;
+  --background-card: #222;
+  --font: #ccc;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title-container {
+  display:flex;
+  justify-content:center;
+  width:100%;
+  border-bottom: 2px solid var(--green);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.home-container {
+  font-family: "Zen Kaku Gothic New", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(to top, #000, #222);
+  color:var(--font)
+}
+
+
+.bands-container {
+  display: flex;
+  align-content: start;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  height: max-content;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.band-card {
+  border: 2px solid var(--green) !important;
+  background-color: var(--background-card) !important;
+  color:var(--font)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.details-button {
+  background-color: var(--green) !important;
+  border: none !important;
+}
+
+.band-info {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+
+.band-info-header {
+  background-color: var(--background-card);
+  color:var(--font);
+  border-bottom: 2px solid var(--green) !important;
+}
+
+.band-info-title {
+  font-weight: 900;
+}
+
+.band-info-body {
+  background-color: var(--background-card);
+  color:var(--font);
+  font-size: 1.2rem;
+}
+
+.band-info-footer {
+  background-color: var(--background-card);
+  color:var(--font);
+  border-top: 2px solid var(--green) !important;
+}
+
+.login-container{
+  height: 100vh;
+  background: linear-gradient(to top, #000, #222);
+  color:var(--font);
+}
+
+.login-form{
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight:bold;
+  width:35rem;
+  border: 2px solid var(--green) ;
+  border-radius:10px;
+}
+
+.submit-login{
+  border:none;
+  background-color: var(--green);
+  width:100%;
+  padding:8px;
+  border-radius:5px;
+  font-weight:bold;
+  color:var(--font);
+  transition:.2s;
+}
+.submit-login:hover{
+background-color: #259e50;
+}
+
+.error-login{
+  color: rgb(245, 101, 101);
+  text-align:center
 }

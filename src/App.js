@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Context from "./context/Context";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
+  const [bands, setBands] = useState([]);
+  const [sort, setSort] = useState("id");
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://my-json-server.typicode.com/improvein/dev-challenge/bands?_sort=${sort}`
+      )
+      .then((response) => setBands(response.data));
+  }, [sort]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{ bands, token, setToken }}>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            {token ? <Home setSort={setSort} /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/login">{token ? <Redirect to="/" /> : <Login />}</Route>
+        </Switch>
+      </BrowserRouter>
+    </Context.Provider>
   );
 }
 
